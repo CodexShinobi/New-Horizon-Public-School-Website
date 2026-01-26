@@ -12,20 +12,21 @@ if (menuToggle) {
   });
 }
 
-document.querySelectorAll(".dropdown > a").forEach(menu => {
-  menu.addEventListener("click", function (e) {
-    if (window.innerWidth <= 1024) {
-      e.preventDefault();
+// document.querySelectorAll(".dropdown > a").forEach(menu => {
+//  menu.addEventListener("click", function (e) {
+//   if (window.innerWidth <= 1024 && this.nextElementSibling) {
+//     e.preventDefault();
 
-      const parent = this.parentElement;
-      parent.classList.toggle("open");
 
-      document.querySelectorAll(".dropdown").forEach(item => {
-        if (item !== parent) item.classList.remove("open");
-      });
-    }
-  });
-});
+//       const parent = this.parentElement;
+//       parent.classList.toggle("open");
+
+//       document.querySelectorAll(".dropdown").forEach(item => {
+//         if (item !== parent) item.classList.remove("open");
+//       });
+//     }
+//   });
+// });
 
 /******************************
  DARK MODE (PERSISTENT)
