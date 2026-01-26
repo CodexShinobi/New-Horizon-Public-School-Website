@@ -143,6 +143,11 @@ body.dark .footer {
   background: #d4af37;
   color: #000;
 }
+/* REMOVE UNDERLINE FROM LOGO & SCHOOL NAME */
+.dps-brand a {
+  text-decoration: none;
+  color: inherit;
+}
 
 /* DROPDOWN */
 .dropdown-menu {
