@@ -72,10 +72,10 @@ body.dark .footer {
 
 /* BRAND */
 .dps-brand {
-  .dps-brand {
+
   text-decoration: none;
   color: inherit;
-}
+
 
   display: flex;
   align-items: center;
@@ -85,7 +85,10 @@ body.dark .footer {
 .dps-brand img {
   height: 60px;
 }
-
+.dps-brand h1,
+.dps-brand span {
+  text-decoration: none;
+}
 .brand-text h1 {
   font-size: 20px;
   font-weight: 800;
