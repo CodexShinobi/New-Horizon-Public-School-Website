@@ -34,52 +34,260 @@ body.dark .footer {
   --glass: rgba(255, 255, 255, 0.15);
 }
 
-/* ================= NAVBAR ================= */
-.navbar {
+/* =========================================================
+   ================= NAVBAR (CORRECTED ONLY) =================
+   ========================================================= */
+
+/* .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 15px 40px;
+  height: 96px;                
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(12px);
+  background: white;
+  z-index: 1000;
+} */
+ 
+/* ================= NHPS STYLE NAVBAR ================= */
+.dps-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 90px;
+  background: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  backdrop-filter: blur(12px);
-  background: var(--glass);
-  z-index: 1000;
+  padding: 0 40px;
+  z-index: 2000;
+  border-bottom: 1px solid #eee;
+
+  /* ✅ FIX 1 */
+  overflow: visible;
 }
 
-.logo {
-  font-weight: 700;
+/* BRAND */
+.dps-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.dps-brand img {
+  height: 60px;
+}
+
+.brand-text h1 {
   font-size: 20px;
-  color: var(--gold);
+  font-weight: 800;
+  color: #0a1f44;
 }
 
-.nav-links a {
-  margin: 0 12px;
-  text-decoration: none;
-  color: inherit;
-  font-weight: 500;
+.brand-text h1 span {
+  color: #d4af37;
+}
+
+.brand-text p {
+  font-size: 12px;
+  color: #555;
+}
+
+/* MENU */
+.dps-menu ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dps-menu li {
   position: relative;
 }
 
-.nav-links a.active,
-.nav-links a:hover {
-  color: var(--gold);
+.dps-menu a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0a1f44;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+
+  /* ✅ FIX 2 */
+  outline: none;
 }
 
-#themeToggle {
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
+/* ACTIVE + HOVER */
+.dps-menu li:hover > a {
+  background: #0a1f44;
+  color: #ffffff;
+}
+
+.dps-menu li.active > a {
+  background: #d4af37;
+  color: #000;
+}
+
+/* DROPDOWN */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 220px;
+  background: #ffffff;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  display: none;
+  flex-direction: column;
+  padding: 6px 0;
+
+  /* ✅ FIX 3 */
+  max-height: 70vh;
+  overflow-y: auto;
+  z-index: 3000;
+}
+
+.dropdown-menu li a {
+  padding: 10px 16px;
+  font-size: 13.5px;
+  color: #0a1f44;
+  background: transparent;
+}
+
+.dropdown-menu li a:hover {
+  background: #f5f5f5;
+  color: #d4af37;
+}
+
+/* SHOW DROPDOWN (DESKTOP ONLY) */
+@media (hover: hover) {
+  .dropdown:hover .dropdown-menu {
+    display: flex;
+  }
+}
+
+/* ICON BUTTON */
+.icon-btn a {
+  background: #0a1f44;
+  color: #ffffff;
+  border-radius: 4px;
+}
+
+.icon-btn a:hover {
+  background: #d4af37;
+  color: #000;
+}
+
+/* BODY OFFSET */
+body {
+  padding-top: 90px;
+
+  /* ✅ FIX 4 */
+  overflow-x: hidden;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .brand-text h1 {
+    font-size: 16px;
+  }
+
+  .dps-menu a {
+    font-size: 13px;
+  }
+}
+
+
+/* LOGO SECTION */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;               /* prevents squishing */
+}
+
+.logo img {
+  height: 88px;                 /* big but controlled */
+  width: auto;
+}
+
+.school-name {
+  font-size: 50px;
+  font-weight: 800;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+/* NAV LINKS */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.nav-links a {
+  font-size: 14.5px;
+  font-weight: 600;
+  padding: 6px 8px;
+  white-space: nowrap;
+  text-decoration: none;
   color: inherit;
 }
 
-/* ================= HERO ================= */
+/* THEME TOGGLE */
+#themeToggle {
+  margin-left: 20px;
+}
+
+/* NAVBAR RESPONSIVE (UNCHANGED INTENT) */
+@media (max-width: 1024px) {
+  .school-name {
+    font-size: 16px;
+  }
+
+  .logo img {
+    height: 80px;
+  }
+
+  .nav-links {
+    gap: 14px;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .school-name {
+    display: none;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .navbar {
+    padding: 0 20px;
+    height: 88px;
+  }
+}
+
+/* =========================================================
+   ================= HERO (CORRECTED ONLY) ==================
+   ========================================================= */
+/* 
 .hero {
   height: 100vh;
   background: linear-gradient(rgba(10,31,68,0.7), rgba(10,31,68,0.7)),
-              url('https://plus.unsplash.com/premium_photo-1680807869780-e0876a6f3cd5?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2Nob29sfGVufDB8fDB8fHww') center/cover no-repeat;
+    url('https://plus.unsplash.com/premium_photo-1680807869780-e0876a6f3cd5?w=1000&auto=format&fit=crop&q=60')
+    center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,6 +303,152 @@ body.dark .footer {
   margin: 20px 0;
   font-size: 18px;
   color: #eee;
+} */
+/* ================= HOME ABOUT SECTION ================= */
+
+.home-about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-tag {
+  color: var(--gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+}
+
+.home-about-content h2 {
+  font-size: 34px;
+  margin: 10px 0 20px;
+}
+
+.home-about-content .highlight {
+  color: var(--gold);
+}
+
+.home-about-content p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+  font-size: 15.5px;
+}
+
+.home-about-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .home-about-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+
+/* ================= BUTTONS ================= */
+.btn-gold,
+.btn,
+.btn-whatsapp {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--gold);
+  color: #000;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+/* ... ALL REMAINING CSS CONTINUES EXACTLY SAME ... */
+
+IMPORTANT TYPO FIX ONLY
+.hero-gallery {
+  background-image: url("https://images.unsplash.com/photo-1636772523547-5577d04e8dc1?w=1000&auto=format&fit=crop&q=60");
+}
+
+/* ================= HERO ================= */
+/* ================= HERO SLIDER ================= */
+
+/* ================= HERO SLIDER ================= */
+
+.hero-slider {
+  position: relative;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.hero-slider .slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.hero-slider .slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 31, 68, 0.55);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+/* Slider buttons */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.slider-btn:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+.slider-btn.prev {
+  left: 20px;
+}
+
+.slider-btn.next {
+  right: 20px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .slider-btn {
+    font-size: 18px;
+    padding: 10px;
+  }
 }
 
 /* ================= BUTTONS ================= */
@@ -625,4 +979,54 @@ background-image: ul("https://images.unsplash.com/photo-1636772523547-5577d04e8d
 
 .hero-about {
   background-image: url("https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=1000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YWJvdXR8ZW58MHx8MHx8fDA%3D");
+}
+/* ================= FACILITIES ================= */
+
+.facilities-intro {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  text-align: center;
+  font-size: 15.5px;
+  line-height: 1.7;
+}
+
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+}
+
+.facility-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.facility-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.facility-card span {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 12px;
+  background: rgba(10,31,68,0.85);
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+}
+
+.facility-card:hover img {
+  transform: scale(1.08);
+}
+
+.facilities-btn {
+  display: block;
+  margin: 40px auto 0;
+  text-align: center;
 }

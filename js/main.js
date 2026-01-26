@@ -1,5 +1,19 @@
 
 
+document.querySelectorAll(".dropdown > a").forEach(menu => {
+  menu.addEventListener("click", function (e) {
+    if (window.innerWidth <= 1024) {
+      e.preventDefault();
+
+      const parent = this.parentElement;
+      parent.classList.toggle("open");
+
+      document.querySelectorAll(".dropdown").forEach(item => {
+        if (item !== parent) item.classList.remove("open");
+      });
+    }
+  });
+});
 
 
 
@@ -27,17 +41,31 @@ if (themeToggle) {
 
 /******************************
  PRELOADER
-******************************/
-window.addEventListener("load", () => {
-  const preloader = document.getElementById("preloader");
-  if (preloader) {
-    gsap.to(preloader, {
-      opacity: 0,
-      duration: 1,
-      delay: 0.5,
-      onComplete: () => preloader.remove()
-    });
-  }
+// ******************************/
+// window.addEventListener("load", () => {
+//   const preloader = document.getElementById("preloader");
+//   if (preloader) {
+//     gsap.to(preloader, {
+//       opacity: 0,
+//       duration: 1,
+//       delay: 0.5,
+//       onComplete: () => preloader.remove()
+//     });
+//   }
+// });
+document.querySelectorAll(".dropdown > a").forEach(menu => {
+  menu.addEventListener("click", function (e) {
+    if (window.innerWidth <= 1024) {
+      e.preventDefault();
+
+      const parent = this.parentElement;
+      parent.classList.toggle("open");
+
+      document.querySelectorAll(".dropdown").forEach(item => {
+        if (item !== parent) item.classList.remove("open");
+      });
+    }
+  });
 });
 
 /******************************
@@ -158,3 +186,51 @@ gsap.utils.toArray(".btn, .btn-gold, .btn-whatsapp").forEach(btn => {
     gsap.to(btn, { scale: 1, duration: 0.3 });
   });
 });
+/* ================= HERO AUTO SLIDER ================= */
+
+/* ================= HERO SLIDER LOGIC ================= */
+
+const slides = document.querySelectorAll('.hero-slider .slide');
+const nextBtn = document.querySelector('.slider-btn.next');
+const prevBtn = document.querySelector('.slider-btn.prev');
+
+let currentIndex = 0;
+let sliderInterval;
+
+function showSlide(index) {
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[index].classList.add('active');
+}
+
+function nextSlide() {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+}
+
+function prevSlide() {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  showSlide(currentIndex);
+}
+
+function startAutoSlide() {
+  sliderInterval = setInterval(nextSlide, 2000);
+}
+
+function resetAutoSlide() {
+  clearInterval(sliderInterval);
+  startAutoSlide();
+}
+
+/* Button events */
+nextBtn.addEventListener('click', () => {
+  nextSlide();
+  resetAutoSlide();
+});
+
+prevBtn.addEventListener('click', () => {
+  prevSlide();
+  resetAutoSlide();
+});
+
+/* Start slider */
+startAutoSlide();

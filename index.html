@@ -31,19 +31,22 @@
 <body>
 
 <!-- ================= PRELOADER ================= -->
-<div id="preloader">
+<!-- <div id="preloader">
   <h1>New Horizon Public School</h1>
-</div>
+</div> -->
 
 <!-- ================= NAVBAR ================= -->
-<header class="navbar glass">
+<!-- <header class="navbar glass">
   <div class="logo">
-    <img src="assets/images/logo.png" alt="New Horizon Public School" style="height:40px">
-  </div>
+  <img src="assets/images/logo.png" alt="NHPS Logo">
+  <span class="school-name">New Horizon Public School</span>
+</div>
+
 
   <nav class="nav-links">
     <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
+    <a href="publicdisclosure.html">Public Disclosure</a>
     <a href="gallery.html">Gallery</a>
     <a href="events.html">Events</a>
     <a href="contact.html">Contact</a>
@@ -52,10 +55,86 @@
   <button id="themeToggle" aria-label="Toggle Theme">
     <i class="fas fa-moon"></i>
   </button>
+</header> -->
+<!-- ================= DPS STYLE NAVBAR ================= -->
+<header class="dps-navbar">
+
+  <!-- LEFT BRAND -->
+  <div class="dps-brand">
+    <img src="assets/images/logo.png" alt="NHPS Logo">
+    <div class="brand-text">
+      <h1>New Horizon Public School <span>Darbhanga</span></h1>
+      
+    </div>
+  </div>
+
+  <!-- RIGHT MENU -->
+  <nav class="dps-menu">
+    <ul>
+
+      <li class="active">
+        <a href="index.html"><i class="fas fa-home"></i></a>
+      </li>
+
+      <li class="dropdown">
+        <a href="about.html">About Us
+           <!-- <i class="fas fa-chevron-down"></i> -->
+          </a>
+        <!-- <ul class="dropdown-menu"> -->
+          <!-- <li><a href="#">The School</a></li> -->
+          <!-- <li><a href="#">Academic Programme</a></li> -->
+          <!-- <li><a href="#">Our Team</a></li> -->
+          <!-- <li><a href="#">Teacher & Leadership</a></li> -->
+          <!-- <li><a href="#">Mandatory Information</a></li> -->
+        <!-- </ul> -->
+      </li>
+
+      <li class="dropdown">
+        <a href="publicdisclosure.html">Public Disclosure
+           <!-- <i class="fas fa-chevron-down"></i> -->
+          </a>
+        <!-- <ul class="dropdown-menu">
+          <li><a href="#">Admission Process</a></li>
+          <li><a href="#">Fee Structure</a></li>
+          <li><a href="#">Apply Online</a></li>
+        </ul>
+      </li> -->
+
+      <li class="dropdown">
+        <a href="gallery.html">Gallery
+           <!-- <i class="fas fa-chevron-down"></i> -->
+          </a>
+        <!-- <ul class="dropdown-menu">
+          <li><a href="#">CBSE Result X</a></li>
+          <li><a href="#">CBSE Result XII</a></li>
+          <li><a href="#">School Awards</a></li>
+        </ul>
+      </li> -->
+
+      <li><a href="#">Events</a></li>
+
+      <!-- <li class="dropdown"> -->
+        <!-- <a href="events.html">Events -->
+           <!-- <i class="fas fa-chevron-down"></i> -->
+          </a>
+        <!-- <ul class="dropdown-menu"> -->
+          <!-- <li><a href="#">Clubs</a></li>  -->
+          <!-- <li><a href="#">Houses</a></li> -->
+          <!-- <li><a href="#">Activities</a></li> -->
+        <!-- </ul> -->
+      <!-- </li>  -->
+
+      <li><a href="contact.html">Contact</a></li>
+
+      <!-- <li class="icon-btn"><a href="#"><i class="fas fa-search"></i></a></li> -->
+
+    <!-- </ul> -->
+  </nav>
+
 </header>
 
 <!-- ================= HERO SECTION ================= -->
-<section class="hero">
+<!-- <section class="hero">
   <div class="hero-overlay"></div>
 
   <div class="hero-content">
@@ -66,6 +145,36 @@
       Know More <i class="fas fa-arrow-right"></i>
     </a>
   </div>
+</section> -->
+<!-- ================= HERO SLIDER ================= -->
+
+
+<!-- ================= HERO SLIDER ================= -->
+<section class="hero-slider">
+
+  <!-- Slides -->
+  <div class="slide active" style="background-image: url('assets/images/IMG-20190129-WA0127.jpg.jpeg');"></div>
+  <div class="slide" style="background-image: url('assets/images/IMG-20190129-WA0138.jpg.jpeg');"></div>
+  <div class="slide" style="background-image: url('assets/images/IMG-20190129-WA0144.jpg.jpeg');"></div>
+  <div class="slide" style="background-image: url('assets/images/IMG-20220806-WA0045.jpg.jpeg');"></div>
+
+  <!-- Overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Content -->
+  <div class="hero-content">
+    <!-- <h1>New Horizon Public School</h1> -->
+    <!-- <p>Established in 2000 • Shaping Tomorrow’s Leaders with Knowledge & Values</p> -->
+
+    <!-- <a href="about.html" class="btn-gold"> -->
+      <!-- Know More <i class="fas fa-arrow-right"></i> -->
+    <!-- </a> -->
+  </div>
+
+  <!-- Controls -->
+  <button class="slider-btn prev"><i class="fas fa-chevron-left"></i></button>
+  <button class="slider-btn next"><i class="fas fa-chevron-right"></i></button>
+
 </section>
 
 <!-- ================= STATS SECTION ================= -->
@@ -86,6 +195,44 @@
   </div>
 </section>
 
+<!-- ================= ABOUT SCHOOL (HOME) ================= -->
+<section class="home-about section">
+  <div class="home-about-grid">
+
+    <!-- Text -->
+    <div class="home-about-content">
+      <span class="about-tag">Warm Welcome To</span>
+      <h2>
+        New Horizon Public School
+        <span class="highlight">Darbhanga</span>
+      </h2>
+
+      <p>
+        At New Horizon Public School, Darbhanga, we are committed to nurturing
+        young minds and shaping them into confident, responsible, and
+        compassionate individuals. Established in 2000, our school blends
+        academic excellence with strong moral values.
+      </p>
+
+      <p>
+        With modern infrastructure, experienced educators, and a holistic
+        curriculum, we provide an environment where creativity, curiosity,
+        and character flourish.
+      </p>
+
+      <a href="about.html" class="btn-gold">
+        Read More <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <!-- Image -->
+    <div class="home-about-image">
+      <img src="assets/images/IMG-20220806-WA0045.jpg.jpeg" alt="New Horizon Public School Campus">
+    </div>
+
+  </div>
+</section>
+
 <!-- ================= MISSION / VISION ================= -->
 <section class="mission section">
   <div class="mission-box">
@@ -103,6 +250,44 @@
       for a global future.
     </p>
   </div>
+</section>
+<!-- ================= FACILITIES ================= -->
+<section class="facilities section">
+  <h2 class="section-title">Facilities</h2>
+
+  <p class="facilities-intro">
+    At New Horizon Public School, we provide a safe, nurturing, and stimulating
+    environment supported by modern facilities that promote all-round
+    development.
+  </p>
+
+  <div class="facilities-grid">
+
+    <div class="facility-card">
+      <img src="assets/images/CHEMISTRY LAB.jpg (1).jpeg" alt="Sports Facility">
+      <span>Sports Ground</span>
+    </div>
+
+    <div class="facility-card">
+      <img src="assets/images/BIO LAB.jpg.jpeg" alt="Play Area">
+      <span>Play Area</span>
+    </div>
+
+    <div class="facility-card">
+      <img src="assets/images/IMG-20180920-WA0062.jpg.jpeg" alt="Activity Room">
+      <span>Activity Room</span>
+    </div>
+
+    <div class="facility-card">
+      <img src="assets/images/facilities/dance.jpg" alt="Dance & Music">
+      <span>Dance & Music Studio</span>
+    </div>
+
+  </div>
+
+  <a href="gallery.html" class="btn-gold facilities-btn">
+    View All <i class="fas fa-arrow-right"></i>
+  </a>
 </section>
 
 <!-- ================= ACHIEVEMENTS ================= -->
