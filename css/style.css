@@ -378,9 +378,14 @@ IMPORTANT TYPO FIX ONLY
 /* ================= HERO SLIDER ================= */
 
 .hero-slider {
-  position: relative;
-  height: 80vh;
-  overflow: hidden;
+  min-height: 100vh;
+}
+
+/* Mobile fix for browser UI jump */
+@media (max-width: 768px) {
+  .hero-slider {
+    min-height: 85vh;
+  }
 }
 
 .hero-slider .slide {
@@ -1029,4 +1034,55 @@ background-image: ul("https://images.unsplash.com/photo-1636772523547-5577d04e8d
   display: block;
   margin: 40px auto 0;
   text-align: center;
+}
+/* ================= MOBILE NAV FIX ================= */
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  width: 26px;
+  height: 3px;
+  background: #0a1f44;
+  border-radius: 3px;
+}
+
+/* Tablet & Mobile */
+@media (max-width: 1024px) {
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .dps-menu {
+    position: absolute;
+    top: 90px;
+    left: 0;
+    width: 100%;
+    background: #ffffff;
+    display: none;
+    flex-direction: column;
+    border-top: 1px solid #eee;
+  }
+
+  .dps-menu.open {
+    display: flex;
+  }
+
+  .dps-menu ul {
+    flex-direction: column;
+  }
+
+  .dps-menu li {
+    width: 100%;
+  }
+
+  .dps-menu a {
+    padding: 14px 20px;
+    border-bottom: 1px solid #f1f1f1;
+  }
 }

@@ -1,4 +1,16 @@
+/******************************
+ MOBILE DROPDOWN FIX
+******************************/
+/* ================= MOBILE MENU ================= */
 
+const menuToggle = document.querySelector(".menu-toggle");
+const menu = document.querySelector(".dps-menu");
+
+if (menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    menu.classList.toggle("open");
+  });
+}
 
 document.querySelectorAll(".dropdown > a").forEach(menu => {
   menu.addEventListener("click", function (e) {
@@ -14,9 +26,6 @@ document.querySelectorAll(".dropdown > a").forEach(menu => {
     }
   });
 });
-
-
-
 
 /******************************
  DARK MODE (PERSISTENT)
@@ -30,48 +39,17 @@ if (localStorage.getItem("theme") === "dark") {
 if (themeToggle) {
   themeToggle.addEventListener("click", () => {
     document.body.classList.toggle("dark");
-
-    if (document.body.classList.contains("dark")) {
-      localStorage.setItem("theme", "dark");
-    } else {
-      localStorage.setItem("theme", "light");
-    }
+    localStorage.setItem(
+      "theme",
+      document.body.classList.contains("dark") ? "dark" : "light"
+    );
   });
 }
 
 /******************************
- PRELOADER
-// ******************************/
-// window.addEventListener("load", () => {
-//   const preloader = document.getElementById("preloader");
-//   if (preloader) {
-//     gsap.to(preloader, {
-//       opacity: 0,
-//       duration: 1,
-//       delay: 0.5,
-//       onComplete: () => preloader.remove()
-//     });
-//   }
-// });
-document.querySelectorAll(".dropdown > a").forEach(menu => {
-  menu.addEventListener("click", function (e) {
-    if (window.innerWidth <= 1024) {
-      e.preventDefault();
-
-      const parent = this.parentElement;
-      parent.classList.toggle("open");
-
-      document.querySelectorAll(".dropdown").forEach(item => {
-        if (item !== parent) item.classList.remove("open");
-      });
-    }
-  });
-});
-
-/******************************
  PAGE LOAD ANIMATION
 ******************************/
-gsap.from(".navbar", {
+gsap.from(".dps-navbar", {
   y: -80,
   opacity: 0,
   duration: 1,
@@ -108,7 +86,7 @@ gsap.utils.toArray(".counter").forEach(counter => {
 });
 
 /******************************
- SECTION SCROLL ANIMATIONS
+ SECTION ANIMATIONS
 ******************************/
 gsap.utils.toArray(".section").forEach(section => {
   gsap.from(section, {
@@ -123,83 +101,18 @@ gsap.utils.toArray(".section").forEach(section => {
 });
 
 /******************************
- TEAM / EVENT / CARD ANIMATIONS
+ HERO IMAGE SLIDER (SAFE)
 ******************************/
-gsap.utils.toArray(".team-card, .event-card, .achievement").forEach(card => {
-  gsap.from(card, {
-    opacity: 0,
-    y: 40,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: card,
-      start: "top 90%"
-    }
-  });
-});
-
-/******************************
- GALLERY IMAGE ANIMATION
-******************************/
-gsap.utils.toArray(".gallery-item").forEach(img => {
-  gsap.from(img, {
-    scale: 0.9,
-    opacity: 0,
-    duration: 0.8,
-    scrollTrigger: {
-      trigger: img,
-      start: "top 90%"
-    }
-  });
-});
-
-/******************************
- BACK TO TOP BUTTON
-******************************/
-const backToTop = document.getElementById("backToTop");
-
-if (backToTop) {
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 400) {
-      backToTop.style.display = "flex";
-    } else {
-      backToTop.style.display = "none";
-    }
-  });
-
-  backToTop.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
-}
-
-/******************************
- SMOOTH HOVER EFFECT (BUTTONS)
-******************************/
-gsap.utils.toArray(".btn, .btn-gold, .btn-whatsapp").forEach(btn => {
-  btn.addEventListener("mouseenter", () => {
-    gsap.to(btn, { scale: 1.05, duration: 0.3 });
-  });
-
-  btn.addEventListener("mouseleave", () => {
-    gsap.to(btn, { scale: 1, duration: 0.3 });
-  });
-});
-/* ================= HERO AUTO SLIDER ================= */
-
-/* ================= HERO SLIDER LOGIC ================= */
-
-const slides = document.querySelectorAll('.hero-slider .slide');
-const nextBtn = document.querySelector('.slider-btn.next');
-const prevBtn = document.querySelector('.slider-btn.prev');
+const slides = document.querySelectorAll(".hero-slider .slide");
+const nextBtn = document.querySelector(".slider-btn.next");
+const prevBtn = document.querySelector(".slider-btn.prev");
 
 let currentIndex = 0;
 let sliderInterval;
 
 function showSlide(index) {
-  slides.forEach(slide => slide.classList.remove('active'));
-  slides[index].classList.add('active');
+  slides.forEach(slide => slide.classList.remove("active"));
+  slides[index].classList.add("active");
 }
 
 function nextSlide() {
@@ -213,7 +126,9 @@ function prevSlide() {
 }
 
 function startAutoSlide() {
-  sliderInterval = setInterval(nextSlide, 2000);
+  if (slides.length > 1) {
+    sliderInterval = setInterval(nextSlide, 4000); // 4 seconds (professional)
+  }
 }
 
 function resetAutoSlide() {
@@ -221,16 +136,31 @@ function resetAutoSlide() {
   startAutoSlide();
 }
 
-/* Button events */
-nextBtn.addEventListener('click', () => {
-  nextSlide();
-  resetAutoSlide();
-});
+if (nextBtn && prevBtn) {
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    resetAutoSlide();
+  });
 
-prevBtn.addEventListener('click', () => {
-  prevSlide();
-  resetAutoSlide();
-});
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
+    resetAutoSlide();
+  });
+}
 
-/* Start slider */
 startAutoSlide();
+
+/******************************
+ BACK TO TOP
+******************************/
+const backToTop = document.getElementById("backToTop");
+
+if (backToTop) {
+  window.addEventListener("scroll", () => {
+    backToTop.style.display = window.scrollY > 400 ? "flex" : "none";
+  });
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
