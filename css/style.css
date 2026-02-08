@@ -505,7 +505,7 @@ IMPORTANT TYPO FIX ONLY
 
 /* ================= SECTIONS ================= */
 .section {
-  padding: 100px 10%;
+  padding: 55px 10%;
 }
 
 .section-title {
@@ -523,7 +523,7 @@ body.dark .section-title {
 .stats {
   display: flex;
   justify-content: center;
-  gap: 40px;
+  gap: 35px;
   text-align: center;
 }
 

@@ -128,7 +128,7 @@ function prevSlide() {
 
 function startAutoSlide() {
   if (slides.length > 1) {
-    sliderInterval = setInterval(nextSlide, 4000); // 4 seconds (professional)
+    sliderInterval = setInterval(nextSlide, 3000); // 4 seconds (professional)
   }
 }
 
