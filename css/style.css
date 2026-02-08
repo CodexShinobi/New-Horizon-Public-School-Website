@@ -1137,3 +1137,72 @@ body.dark .disclosure-download {
 body.dark .disclosure-download h3 {
   color: var(--gold);
 }
+.disclosure-download {
+  text-align: center;
+}
+
+.disclosure-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: #fff;
+}
+
+.disclosure-table th,
+.disclosure-table td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  font-size: 14px;
+  text-align: left;
+}
+
+.disclosure-table th {
+  background: #0a1f44;
+  color: #fff;
+}
+
+.disclosure-table a {
+  color: #d4af37;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+.disclosure-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 25px 15px;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  transition: 0.3s ease;
+  text-align: center;
+  color: #111;
+}
+
+.disclosure-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.pdf-icon {
+  font-size: 42px;
+  color: #d32f2f;
+  margin-bottom: 10px;
+}
+
+.youtube-icon {
+  font-size: 42px;
+  color: #ff0000;
+  margin-bottom: 10px;
+}
+
+.disclosure-card p {
+  font-size: 14px;
+  font-weight: 600;
+}
