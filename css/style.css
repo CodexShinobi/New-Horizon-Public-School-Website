@@ -1208,3 +1208,42 @@ body.dark .disclosure-download h3 {
 }
 
 
+/* MOBILE NAV */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #0a1f44;
+  }
+
+  .dps-menu {
+    position: absolute;
+    top: 90px;
+    right: 0;
+    width: 100%;
+    background: #fff;
+    display: none;
+    flex-direction: column;
+  }
+
+  .dps-menu.active {
+    display: flex;
+  }
+
+  .dps-menu ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .dps-menu li {
+    width: 100%;
+    text-align: center;
+  }
+}

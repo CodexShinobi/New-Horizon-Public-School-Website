@@ -6,11 +6,11 @@
 const menuToggle = document.querySelector(".menu-toggle");
 const menu = document.querySelector(".dps-menu");
 
-if (menuToggle) {
-  menuToggle.addEventListener("click", () => {
-    menu.classList.toggle("open");
-  });
-}
+menuToggle.addEventListener("click", () => {
+  menu.classList.toggle("active");
+});
+
+
 
 // document.querySelectorAll(".dropdown > a").forEach(menu => {
 //  menu.addEventListener("click", function (e) {
