@@ -424,7 +424,7 @@ IMPORTANT TYPO FIX ONLY
 }
 
 .hero-overlay {
-  position: absolute;
+  position:absolute;
   inset: 0;
   background: rgba(10, 31, 68, 0.55);
   z-index: 2;
