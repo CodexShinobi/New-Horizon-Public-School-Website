@@ -1004,58 +1004,8 @@
        MOBILE MENU SCRIPT
   ====================================================== -->
 
-  <script>
+ 
 
-    document.addEventListener("DOMContentLoaded", function () {
-
-      const menuToggle =
-        document.getElementById("menuToggle");
-
-      const mainMenu =
-        document.getElementById("mainMenu");
-
-
-      if (menuToggle && mainMenu) {
-
-        menuToggle.addEventListener("click", function () {
-
-          mainMenu.classList.toggle("active");
-
-          const isOpen =
-            mainMenu.classList.contains("active");
-
-          menuToggle.setAttribute(
-            "aria-expanded",
-            isOpen
-          );
-
-        });
-
-
-        /* Close menu after clicking a link */
-
-        mainMenu
-          .querySelectorAll("a")
-          .forEach(function (link) {
-
-            link.addEventListener("click", function () {
-
-              mainMenu.classList.remove("active");
-
-              menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-              );
-
-            });
-
-          });
-
-      }
-
-    });
-
-  </script>
 
 
 
